@@ -1,48 +1,101 @@
 const mongoose = require("mongoose");
 
-const clanSchema = new mongoose.Schema({
+const ClanSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Clan name is required"],
-    unique: true, // Unique within a federation? Consider compound index later if needed.
+    required: [true, "Nome do clã é obrigatório"],
     trim: true,
   },
   tag: {
     type: String,
-    required: [true, "Clan tag is required"],
-    unique: true, // Unique across all clans?
+    required: [true, "TAG do clã é obrigatória"],
     trim: true,
-    uppercase: true,
-    maxlength: [5, "Clan tag cannot be longer than 5 characters"],
-  },
-  banner: {
-    type: String, // Path to banner image or emoji identifier
-    trim: true,
-    default: "🛡️", // Default banner/flag
+    maxlength: [5, "TAG não pode ter mais de 5 caracteres"],
   },
   description: {
     type: String,
     trim: true,
+    maxlength: [500, "Descrição não pode ter mais de 500 caracteres"],
   },
-  federation: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Federation",
-    required: [true, "Clan must belong to a federation"],
+  banner: {
+    type: String, // URL da imagem da bandeira
+    default: null,
   },
-  leaders: [{
+  leader: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
+  },
+  subLeaders: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   }],
   members: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   }],
-  // Consider adding limits later, e.g., max members, max clans per federation
-}, { timestamps: true });
+  federation: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Federation",
+    default: null,
+  },
+  customRoles: [{
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    color: {
+      type: String,
+      default: "#FFFFFF",
+    },
+    permissions: {
+      manageMembers: { type: Boolean, default: false },
+      manageChannels: { type: Boolean, default: false },
+      manageRoles: { type: Boolean, default: false },
+      kickMembers: { type: Boolean, default: false },
+      muteMembers: { type: Boolean, default: false },
+    },
+  }],
+  memberRoles: [{
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    role: {
+      type: String,
+      required: true,
+    },
+  }],
+  allies: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Clan",
+  }],
+  enemies: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Clan",
+  }],
+  rules: {
+    type: String,
+    trim: true,
+    maxlength: [1000, "Regras não podem ter mais de 1000 caracteres"],
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-// Ensure a user can only be a member or leader of one clan at a time?
-// This might be better enforced at the application level or via User model update.
+// Garantir que o líder também esteja na lista de membros
+ClanSchema.pre("save", function (next) {
+  if (this.isNew || this.isModified("leader")) {
+    if (!this.members.includes(this.leader)) {
+      this.members.push(this.leader);
+    }
+  }
+  next();
+});
 
-module.exports = mongoose.model("Clan", clanSchema);
+module.exports = mongoose.model("Clan", ClanSchema);
 

@@ -8,13 +8,16 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const channelRoutes = require("./routes/channelRoutes");
 const userRoutes = require("./routes/userRoutes");
+const voiceChannelRoutes = require("./routes/voiceChannelRoutes");
+const globalChannelRoutes = require("./routes/globalChannelRoutes");
 const Message = require("./models/Message");
 const User = require("./models/User");
 const Channel = require("./models/Channel");
+const VoiceChannel = require("./models/VoiceChannel");
+const GlobalChannel = require("./models/GlobalChannel");
 const jwt = require("jsonwebtoken");
 const winston = require("winston");
 const errorHandler = require("./middleware/errorMiddleware");
-// Removed listEndpoints import
 
 // --- Basic Setup ---
 const app = express();
@@ -91,6 +94,10 @@ logger.info("Registering /api/auth routes...");
 app.use("/api/auth", authRoutes);
 logger.info("Registering /api/channels routes...");
 app.use("/api/channels", channelRoutes);
+logger.info("Registering /api/voice-channels routes...");
+app.use("/api/voice-channels", voiceChannelRoutes);
+logger.info("Registering /api/global-channels routes...");
+app.use("/api/global-channels", globalChannelRoutes);
 logger.info("Registering /api routes (userRoutes)...");
 app.use("/api", userRoutes); // Routes for users, including upload and clan members
 
@@ -229,6 +236,124 @@ io.on("connection", (socket) => {
     if (!channelId) return;
     socket.leave(channelId);
     logger.info(`User left channel room`, { username: socket.user.username, channelId, socketId: socket.id });
+  });
+
+  socket.on("join_voice_channel", async ({ channelId }, callback) => {
+    try {
+      if (!channelId) {
+        return callback({ status: "error", message: "Channel ID is required" });
+      }
+      
+      // Check if it's a global voice channel
+      let channel = await GlobalChannel.findById(channelId);
+      let isGlobal = true;
+      
+      // If not found, check if it's a clan/federation voice channel
+      if (!channel) {
+        channel = await VoiceChannel.findById(channelId);
+        isGlobal = false;
+        
+        if (!channel) {
+          logger.warn(`User tried to join non-existent voice channel`, { username: socket.user.username, channelId, socketId: socket.id });
+          return callback({ status: "error", message: "Voice channel not found" });
+        }
+        
+        // Check permissions for clan/federation channels
+        if (channel.type === "clan" && !socket.user.clan.equals(channel.clanId)) {
+          logger.warn(`Unauthorized attempt to join clan voice channel`, { username: socket.user.username, channelId, socketId: socket.id });
+          return callback({ status: "error", message: "Not authorized to join this clan's voice channel" });
+        }
+        
+        // Add federation check here if needed
+      }
+      
+      // Check if channel is at capacity
+      if (channel.activeUsers.length >= channel.userLimit) {
+        logger.warn(`User tried to join full voice channel`, { username: socket.user.username, channelId, socketId: socket.id });
+        return callback({ status: "error", message: "Voice channel is at capacity" });
+      }
+      
+      // Add user to active users if not already there
+      if (!channel.activeUsers.includes(socket.user._id)) {
+        channel.activeUsers.push(socket.user._id);
+        await channel.save();
+      }
+      
+      socket.join(channelId);
+      logger.info(`User joined voice channel room`, { username: socket.user.username, channelId, socketId: socket.id });
+      
+      // Notify others in the channel
+      socket.to(channelId).emit("user_joined_voice", {
+        userId: socket.user._id,
+        username: socket.user.username,
+        avatar: socket.user.avatar
+      });
+      
+      // Return channel info with active users
+      const populatedChannel = isGlobal 
+        ? await GlobalChannel.findById(channelId).populate("activeUsers", "username avatar")
+        : await VoiceChannel.findById(channelId).populate("activeUsers", "username avatar");
+        
+      callback({ 
+        status: "ok", 
+        channel: populatedChannel,
+        peers: populatedChannel.activeUsers.filter(user => user._id.toString() !== socket.user._id.toString())
+      });
+      
+      await User.findByIdAndUpdate(socket.user._id, { ultimaAtividade: new Date() });
+    } catch (error) {
+      logger.error(`Error joining voice channel`, { username: socket.user.username, channelId, error: error.message, stack: error.stack, socketId: socket.id });
+      callback({ status: "error", message: "Server error joining voice channel" });
+    }
+  });
+
+  socket.on("leave_voice_channel", async ({ channelId }, callback) => {
+    try {
+      if (!channelId) {
+        return callback && callback({ status: "error", message: "Channel ID is required" });
+      }
+      
+      // Check if it's a global voice channel
+      let channel = await GlobalChannel.findById(channelId);
+      let isGlobal = true;
+      
+      // If not found, check if it's a clan/federation voice channel
+      if (!channel) {
+        channel = await VoiceChannel.findById(channelId);
+        isGlobal = false;
+        
+        if (!channel) {
+          logger.warn(`User tried to leave non-existent voice channel`, { username: socket.user.username, channelId, socketId: socket.id });
+          return callback && callback({ status: "error", message: "Voice channel not found" });
+        }
+      }
+      
+      // Remove user from active users
+      if (channel.activeUsers.includes(socket.user._id)) {
+        channel.activeUsers = channel.activeUsers.filter(userId => userId.toString() !== socket.user._id.toString());
+        await channel.save();
+      }
+      
+      socket.leave(channelId);
+      logger.info(`User left voice channel room`, { username: socket.user.username, channelId, socketId: socket.id });
+      
+      // Notify others in the channel
+      socket.to(channelId).emit("user_left_voice", {
+        userId: socket.user._id,
+        username: socket.user.username
+      });
+      
+      if (callback) {
+        callback({ status: "ok" });
+      }
+      
+      await User.findByIdAndUpdate(socket.user._id, { ultimaAtividade: new Date() });
+    } catch (error) {
+      logger.error(`Error leaving voice channel`, { username: socket.user.username, channelId, error: error.message, stack: error.stack, socketId: socket.id });
+      if (callback) {
+        callback({ status: "error", message: "Server error leaving voice channel" });
+      }
+    }
   });
 
   socket.on("disconnect", async (reason) => {

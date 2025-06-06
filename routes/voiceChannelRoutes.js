@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const VoiceChannel = require("../models/VoiceChannel");
-const auth = require("../middleware/authMiddleware");
+const { protect: auth } = require("../middleware/authMiddleware");
 const { check, validationResult } = require("express-validator");
 
 // @route   GET /api/voice-channels

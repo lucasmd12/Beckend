@@ -93,6 +93,7 @@ const allowedOrigins = [
   "http://localhost:8080",
   "http://localhost:5000",
   "http://localhost",
+  "https://beckend-ydd1.onrender.com", // <<<<<< ADICIONADO AQUI
 ];
 app.use(cors({
   origin: function (origin, callback) {

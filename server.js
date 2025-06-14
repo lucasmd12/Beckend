@@ -35,8 +35,24 @@ const clanMissionRoutes = require("./routes/clanMission.routes"); // <<<<<< ADIC
 // --- Basic Setup ---
 const app = express();
 
-const { swaggerUi, swaggerSpec } = require('./swagger');
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+const { swaggerUi, swaggerSpec } = require(\'./swagger\');
+
+// Defina a URL base do seu serviço no Render
+const RENDER_BASE_URL = \'https://beckend-ydd1.onrender.com\'; // Certifique-se de que este é o seu domínio real no Render
+
+app.use(\'/api-docs\', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  swaggerOptions: {
+    url: `${RENDER_BASE_URL}/api-docs-json` // Endpoint para o JSON do Swagger
+  },
+  customSiteTitle: "FederacaoMad API Documentation"
+}));
+
+// Adicione um endpoint para servir o JSON da especificação Swagger
+app.get(\'/api-docs-json\', (req, res) => {
+  res.setHeader(\'Content-Type\', \'application/json\');
+  res.send(swaggerSpec);
+});
+
 app.set("trust proxy", 1);
 const server = http.createServer(app);
 

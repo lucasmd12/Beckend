@@ -1,10 +1,10 @@
-const multer = require(\'multer\');
-const path = require(\'path\');
-const fs = require(\'fs\');
-const User = require(\'../models/User\');
-const Clan = require(\'../models/Clan\');
-const Federation = require(\'../models/Federation\');
-const cloudinary = require(\'../config/cloudinary\');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+const User = require('../models/User');
+const Clan = require('../models/Clan');
+const Federation = require('../models/Federation');
+const cloudinary = require('../config/cloudinary');
 
 // Configuração do multer para upload local temporário
 const storage = multer.diskStorage({

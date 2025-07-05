@@ -1,0 +1,112 @@
+// middleware/qrrAuthMiddleware.js
+const QRR = require('../models/QRR'); // Assumindo que você tem o modelo QRR
+const Clan = require('../models/Clan'); // Assumindo que você tem o modelo Clan
+
+/**
+ * Middleware para verificar se o usuário é o criador do QRR, líder do clã ao qual o QRR pertence, ou um administrador.
+ * Aplica-se a operações que modificam o QRR (update, update status, mark presence, update performance, complete, cancel).
+ */
+exports.authorizeQRRManager = async (req, res, next) => {
+    try {
+        const qrrId = req.params.id || req.params.qrrId; // Pode vir de ':id' ou ':qrrId'
+        const userId = req.user.id;
+        const userRole = req.user.role;
+
+        // ADM tem acesso total
+        if (userRole === 'admin') { // Use 'admin' ou 'ADM' conforme a string exata do seu role
+            return next();
+        }
+
+        const qrr = await QRR.findById(qrrId);
+        if (!qrr) {
+            return res.status(404).json({ msg: 'QRR não encontrado.' });
+        }
+
+        // Verificar se é o Criador do QRR
+        if (qrr.createdBy.toString() === userId) {
+            return next();
+        }
+
+        // Verificar se é Líder do Clã (se o QRR pertence a um clã)
+        if (qrr.clan) {
+            const clan = await Clan.findById(qrr.clan);
+            if (clan && clan.leader && clan.leader.toString() === userId) {
+                return next();
+            }
+        }
+
+        // Se nenhuma das condições acima for atendida, o usuário não tem permissão
+        return res.status(403).json({ msg: 'Acesso negado. Permissão insuficiente para realizar esta ação neste QRR.' });
+
+    } catch (error) {
+        console.error('Erro no middleware authorizeQRRManager:', error);
+        res.status(500).json({ msg: 'Erro interno do servidor ao verificar permissões.' });
+    }
+};
+
+/**
+ * Middleware para verificar se o usuário é o criador do QRR ou um administrador.
+ * Aplica-se a operações mais restritivas como deletar um QRR.
+ */
+exports.authorizeQRRCreatorOrAdmin = async (req, res, next) => {
+    try {
+        const qrrId = req.params.id || req.params.qrrId;
+        const userId = req.user.id;
+        const userRole = req.user.role;
+
+        // ADM tem acesso total
+        if (userRole === 'admin') { // Use 'admin' ou 'ADM' conforme a string exata do seu role
+            return next();
+        }
+
+        const qrr = await QRR.findById(qrrId);
+        if (!qrr) {
+            return res.status(404).json({ msg: 'QRR não encontrado.' });
+        }
+
+        // Verificar se é o Criador do QRR
+        if (qrr.createdBy.toString() === userId) {
+            return next();
+        }
+
+        // Se nenhuma das condições acima for atendida, o usuário não tem permissão
+        return res.status(403).json({ msg: 'Acesso negado. Permissão insuficiente para realizar esta ação neste QRR.' });
+
+    } catch (error) {
+        console.error('Erro no middleware authorizeQRRCreatorOrAdmin:', error);
+        res.status(500).json({ msg: 'Erro interno do servidor ao verificar permissões.' });
+    }
+};
+
+/**
+ * Middleware para verificar se o usuário é o líder do clã especificado ou um administrador.
+ * Aplica-se a operações como criar QRR para um clã ou aceitar/rejeitar QRR de federação para um clã.
+ */
+exports.authorizeClanLeaderOrAdmin = async (req, res, next) => {
+    try {
+        const clanId = req.body.clanId || req.params.clanId; // Pode vir do body (criação) ou params (aceitar/rejeitar)
+        const userId = req.user.id;
+        const userRole = req.user.role;
+
+        // ADM tem acesso total
+        if (userRole === 'admin') { // Use 'admin' ou 'ADM' conforme a string exata do seu role
+            return next();
+        }
+
+        const clan = await Clan.findById(clanId);
+        if (!clan) {
+            return res.status(404).json({ msg: "Clã não encontrado." });
+        }
+
+        // Verificar se é Líder do Clã
+        if (clan.leader && clan.leader.toString() === userId) {
+            return next();
+        }
+
+        return res.status(403).json({ msg: "Acesso negado. Apenas o líder do clã ou ADM pode realizar esta ação." });
+
+    } catch (error) {
+        console.error('Erro no middleware authorizeClanLeaderOrAdmin:', error);
+        res.status(500).json({ msg: 'Erro interno do servidor ao verificar permissões de clã.' });
+    }
+};

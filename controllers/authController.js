@@ -3,9 +3,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { validationResult } = require("express-validator");
 
-// Gera o token JWT
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+// ✅ NOVO: Gera o token JWT com id e role
+const generateToken = (id, role) => {
+  return jwt.sign({ id, role }, process.env.JWT_SECRET, {
     expiresIn: "30d",
   });
 };
@@ -34,11 +34,13 @@ exports.registerUser = async (req, res) => {
 
     await user.save();
 
-    const token = generateToken(user._id);
+    // ✅ Token agora inclui role
+    const token = generateToken(user._id, user.role);
     res.status(201).json({
       _id: user._id,
       username: user.username,
-      token: token,
+      token,
+      role: user.role,
     });
   } catch (err) {
     console.error("Erro ao registrar:", err.message);
@@ -68,19 +70,21 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ msg: "Credenciais inválidas" });
     }
 
-    // Atualizar lastSeen e online status
+    // Atualiza o lastSeen e marca como online
     user.lastSeen = new Date();
     user.online = true;
     await user.save();
 
-    const token = generateToken(user._id);
+    // ✅ Token agora inclui role
+    const token = generateToken(user._id, user.role);
+
     res.json({
       _id: user._id,
       username: user.username,
-      token: token,
-      role: user.role, // Incluir o papel do usuário na resposta de login
-      clan: user.clan, // Incluir informações do clã
-      federation: user.federation // Incluir informações da federação
+      token,
+      role: user.role,
+      clan: user.clan,
+      federation: user.federation
     });
   } catch (err) {
     console.error("Erro ao logar:", err.message);
@@ -93,22 +97,19 @@ exports.loginUser = async (req, res) => {
 // @access  Private
 exports.getUserProfile = async (req, res) => {
   try {
-    const userId = req.user.id; // O ID do usuário vem do token JWT autenticado
+    const userId = req.user.id;
 
-    // Encontra o usuário, atualiza o lastSeen e retorna o documento atualizado
-    // O 'new: true' garante que o documento retornado seja o atualizado
-    // O 'select' especifica quais campos queremos retornar para o perfil
     const user = await User.findOneAndUpdate(
       { _id: userId },
       { $set: { lastSeen: new Date() } },
       {
-        new: true, // Retorna o documento modificado em vez do original
-        select: '-password' // Exclui o campo de senha da resposta
+        new: true,
+        select: '-password'
       }
     )
-    .populate('clan', 'name tag customRoles') // Popula o clã com nome, tag e customRoles
-    .populate('federation', 'name tag') // Popula a federação com nome e tag
-    .lean(); // Usar .lean() para retornar um objeto JavaScript puro, mais rápido para APIs
+      .populate('clan', 'name tag customRoles')
+      .populate('federation', 'name tag')
+      .lean();
 
     if (!user) {
       return res.status(404).json({ msg: "Usuário não encontrado" });

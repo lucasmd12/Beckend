@@ -1,0 +1,86 @@
+2025-06-30T17:42:45.796Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET / 
+2025-06-30T17:42:45.805Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET / com status 404 
+2025-06-30T17:44:00.710Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: HEAD / 
+2025-06-30T17:44:00.713Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para HEAD / com status 404 
+2025-06-30T17:44:00.729Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET / 
+2025-06-30T17:44:00.731Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET / com status 404 
+2025-06-30T17:46:41.580Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET / 
+2025-06-30T17:46:41.583Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET / com status 404 
+2025-06-30T17:46:41.779Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET / 
+2025-06-30T17:46:41.781Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET / com status 404 
+2025-06-30T17:46:51.285Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET / 
+2025-06-30T17:46:51.287Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET / com status 404 
+2025-06-30T17:47:07.368Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET / 
+2025-06-30T17:47:07.370Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET / com status 404 
+2025-06-30T17:54:08.349Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T17:54:08.359Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-06-30T17:54:10.853Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T17:54:10.858Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-06-30T17:54:35.729Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T17:54:35.733Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-06-30T17:54:36.810Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T17:54:36.818Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-06-30T17:55:26.801Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T17:55:26.807Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-06-30T17:59:36.862Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T17:59:36.868Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-06-30T17:59:43.532Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T17:59:43.536Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-06-30T18:04:31.992Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: HEAD /api/auth/login 
+2025-06-30T18:04:31.995Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para HEAD /api/auth/login com status 404 
+2025-06-30T18:04:32.012Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET /api/auth/login 
+2025-06-30T18:04:32.014Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET /api/auth/login com status 404 
+2025-06-30T18:10:48.968Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T18:10:49.333Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 500 
+2025-06-30T18:12:22.020Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET /api/admin/users 
+2025-06-30T18:12:22.026Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET /api/admin/users com status 404 
+2025-06-30T18:19:12.543Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-06-30T18:19:13.040Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-07-13T16:36:18.123Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-07-13T16:36:18.611Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-07-13T16:36:25.465Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET /api/clans 
+2025-07-13T16:36:26.229Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET /api/clans com status 200 
+2025-07-13T16:36:34.634Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/voip/initiate-call 
+2025-07-13T16:36:35.362Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/voip/initiate-call com status 200 
+2025-07-13T16:36:41.634Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET /api/voip/call-history 
+2025-07-13T16:36:42.031Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET /api/voip/call-history com status 200 
+2025-07-13T16:36:50.184Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/qrrs 
+2025-07-13T16:36:51.105Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/qrrs com status 201 
+2025-07-13T16:36:59.188Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/clan-wars/declare 
+2025-07-13T16:36:59.841Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/clan-wars/declare com status 201 
+2025-07-13T16:37:05.693Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET /api/clan-wars/active 
+2025-07-13T16:37:05.952Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET /api/clan-wars/active com status 200 
+2025-07-13T16:39:02.559Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET /api/qrrs/available/6873b67d70c10c4fa06603f4 
+2025-07-13T16:39:03.080Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET /api/qrrs/available/6873b67d70c10c4fa06603f4 com status 200 
+2025-07-13T16:39:11.597Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/clan-wars/6873e0ab9aead310299b0cbd/accept 
+2025-07-13T16:39:11.857Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/clan-wars/6873e0ab9aead310299b0cbd/accept com status 403 
+2025-07-13T16:40:25.515Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: PUT /api/federations/6865b594991986d59d2eea68/add-clan/686886df967098f4aaba12ad 
+2025-07-13T16:40:26.171Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para PUT /api/federations/6865b594991986d59d2eea68/add-clan/686886df967098f4aaba12ad com status 200 
+2025-07-13T16:40:34.491Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET /api/clans/686886df967098f4aaba12ad 
+2025-07-13T16:40:35.109Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET /api/clans/686886df967098f4aaba12ad com status 200 
+2025-07-13T16:40:41.139Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/register 
+2025-07-13T16:40:41.467Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/register com status 201 
+2025-07-13T16:40:50.840Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: PUT /api/clans/6872a895e86ea9b59a75bea0/transfer/6873e1899aead310299b0cd2 
+2025-07-13T16:40:51.228Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para PUT /api/clans/6872a895e86ea9b59a75bea0/transfer/6873e1899aead310299b0cd2 com status 400 
+2025-07-13T16:40:58.863Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: PUT /api/admin/users/6873e1899aead310299b0cd2/assign-clan 
+2025-07-13T16:40:59.126Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para PUT /api/admin/users/6873e1899aead310299b0cd2/assign-clan com status 500 
+2025-07-13T16:41:44.482Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: PUT /api/admin/users/6873e1899aead310299b0cd2/assign-clan 
+2025-07-13T16:41:44.742Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para PUT /api/admin/users/6873e1899aead310299b0cd2/assign-clan com status 500 
+2025-07-13T16:42:40.549Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: PUT /api/admin/users/6873e1899aead310299b0cd2/assign-clan 
+2025-07-13T16:42:41.238Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para PUT /api/admin/users/6873e1899aead310299b0cd2/assign-clan com status 200 
+2025-07-13T16:42:48.509Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-07-13T16:42:48.970Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-07-13T16:42:57.769Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: PUT /api/clans/6872a895e86ea9b59a75bea0/transfer/6873e1899aead310299b0cd2 
+2025-07-13T16:42:58.689Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para PUT /api/clans/6872a895e86ea9b59a75bea0/transfer/6873e1899aead310299b0cd2 com status 200 
+2025-07-13T16:43:04.734Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-07-13T16:43:05.188Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-07-13T16:44:01.275Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/clans 
+2025-07-13T16:44:01.936Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/clans com status 201 
+2025-07-13T16:44:18.542Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/clans 
+2025-07-13T16:44:19.201Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/clans com status 201 
+2025-07-13T16:44:41.480Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/clans 
+2025-07-13T16:44:42.133Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/clans com status 201 
+2025-07-13T17:17:12.113Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: POST /api/auth/login 
+2025-07-13T17:17:12.598Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para POST /api/auth/login com status 200 
+2025-07-13T17:17:18.642Z [ESPIRITUAL-INFO]: Impulso espiritual recebido: GET /api/admin/dashboard-stats 
+2025-07-13T17:17:19.418Z [ESPIRITUAL-INFO]: Resposta espiritual enviada para GET /api/admin/dashboard-stats com status 200 

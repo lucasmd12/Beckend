@@ -35,15 +35,12 @@ class MongooseOptimizer {
 
   // Configurar otimizações globais do Mongoose
   configureGlobalOptimizations() {
-    // Opções de pool de conexão devem ser passadas diretamente na string de conexão ou no objeto de opções do connect.
-    mongoose.set("serverSelectionTimeoutMS", 5000); // 5 segundos timeout
+    // ❌ serverSelectionTimeoutMS REMOVIDO — deve ser usado dentro de mongoose.connect()
+    
     mongoose.set('bufferMaxEntries', 0); // Desabilitar buffering
     mongoose.set('bufferCommands', false); // Desabilitar buffer de comandos
+    mongoose.set('strictQuery', true); // Melhor performance
 
-    // Configurar strictQuery para melhor performance
-    mongoose.set('strictQuery', true);
-
-    // Configurar autoIndex apenas em desenvolvimento
     if (process.env.NODE_ENV === 'production') {
       mongoose.set('autoIndex', false);
     }
@@ -62,10 +59,8 @@ class MongooseOptimizer {
         if (this.startTime) {
           const duration = Date.now() - this.startTime;
           
-          // Atualizar estatísticas
           this.constructor.optimizer.updateQueryStats(duration, this.getQuery(), this.op);
           
-          // Log queries lentas
           if (duration > this.constructor.optimizer.slowQueryThreshold) {
             this.constructor.optimizer.logSlowQuery({
               model: this.model.modelName,
@@ -87,7 +82,6 @@ class MongooseOptimizer {
     };
   }
 
-  // Atualizar estatísticas de queries
   updateQueryStats(duration, query, operation) {
     this.queryStats.total++;
     
@@ -95,16 +89,13 @@ class MongooseOptimizer {
       this.queryStats.slow++;
     }
 
-    // Calcular média móvel
     this.queryStats.averageTime = 
       (this.queryStats.averageTime * (this.queryStats.total - 1) + duration) / this.queryStats.total;
   }
 
-  // Log de queries lentas
   logSlowQuery(queryInfo) {
     this.slowQueries.push(queryInfo);
     
-    // Manter apenas as últimas queries lentas
     if (this.slowQueries.length > this.maxSlowQueries) {
       this.slowQueries.shift();
     }
@@ -114,32 +105,26 @@ class MongooseOptimizer {
     }
   }
 
-  // Otimizador de queries para diferentes modelos
   optimizeQuery(model, operation, query = {}, options = {}) {
     const optimizedOptions = { ...options };
 
-    // Aplicar lean() para queries de leitura que não precisam de métodos do documento
     if (['find', 'findOne', 'findById'].includes(operation) && !options.populate) {
       optimizedOptions.lean = true;
     }
 
-    // Limitar resultados por padrão
     if (operation === 'find' && !options.limit) {
       optimizedOptions.limit = 50;
     }
 
-    // Adicionar projeção para campos específicos se não especificado
     if (!options.select && this.getDefaultProjection(model)) {
       optimizedOptions.select = this.getDefaultProjection(model);
     }
 
-    // Adicionar índices sugeridos para queries comuns
     this.suggestIndexes(model, query);
 
     return optimizedOptions;
   }
 
-  // Projeções padrão para diferentes modelos
   getDefaultProjection(modelName) {
     const projections = {
       'User': '-password -__v',
@@ -152,20 +137,15 @@ class MongooseOptimizer {
     return projections[modelName] || '-__v';
   }
 
-  // Sugerir índices para queries comuns
   suggestIndexes(modelName, query) {
     const suggestions = [];
-    
-    // Analisar campos da query
     const queryFields = Object.keys(query);
     
     if (queryFields.length > 0) {
-      // Sugerir índice composto para queries com múltiplos campos
       if (queryFields.length > 1) {
         suggestions.push(`Compound index suggested for ${modelName}: {${queryFields.join(', ')}}`);
       }
       
-      // Sugerir índices para campos de texto
       queryFields.forEach(field => {
         if (typeof query[field] === 'string' && query[field].includes('$regex')) {
           suggestions.push(`Text index suggested for ${modelName}.${field}`);
@@ -173,13 +153,11 @@ class MongooseOptimizer {
       });
     }
 
-    // Log sugestões apenas em desenvolvimento
     if (process.env.NODE_ENV !== 'production' && suggestions.length > 0) {
       mongoLogger.info('Index suggestions:', suggestions);
     }
   }
 
-  // Wrapper para queries otimizadas
   async executeOptimizedQuery(model, operation, query = {}, options = {}) {
     const startTime = Date.now();
     
@@ -215,32 +193,26 @@ class MongooseOptimizer {
     }
   }
 
-  // Configurar índices recomendados
   async createRecommendedIndexes() {
     try {
       const db = mongoose.connection.db;
       
-      // Índices para User
       await db.collection('users').createIndex({ username: 1 }, { unique: true });
       await db.collection('users').createIndex({ email: 1 }, { unique: true });
       await db.collection('users').createIndex({ clan: 1 });
       await db.collection('users').createIndex({ federation: 1 });
       await db.collection('users').createIndex({ isOnline: 1 });
 
-      // Índices para Message
       await db.collection('messages').createIndex({ channel: 1, createdAt: -1 });
       await db.collection('messages').createIndex({ sender: 1 });
 
-      // Índices para Clan
       await db.collection('clans').createIndex({ name: 1 }, { unique: true });
       await db.collection('clans').createIndex({ federation: 1 });
       await db.collection('clans').createIndex({ leader: 1 });
 
-      // Índices para Federation
       await db.collection('federations').createIndex({ name: 1 }, { unique: true });
       await db.collection('federations').createIndex({ leader: 1 });
 
-      // Índices para VoiceChannel
       await db.collection('voicechannels').createIndex({ name: 1 });
       await db.collection('voicechannels').createIndex({ clan: 1 });
       await db.collection('voicechannels').createIndex({ isActive: 1 });
@@ -251,7 +223,6 @@ class MongooseOptimizer {
     }
   }
 
-  // Obter estatísticas
   getStats() {
     return {
       ...this.queryStats,
@@ -263,7 +234,6 @@ class MongooseOptimizer {
     };
   }
 
-  // Limpar estatísticas
   clearStats() {
     this.queryStats = {
       total: 0,
@@ -274,7 +244,6 @@ class MongooseOptimizer {
     this.slowQueries = [];
   }
 
-  // Analisar performance da conexão
   async analyzeConnectionHealth() {
     try {
       const adminDb = mongoose.connection.db.admin();
@@ -294,13 +263,8 @@ class MongooseOptimizer {
   }
 }
 
-// Exportar instância singleton
 const mongooseOptimizer = new MongooseOptimizer();
-
-// Configurar otimizações globais
 mongooseOptimizer.configureGlobalOptimizations();
-
-// Adicionar referência do optimizer aos modelos
 mongoose.Model.optimizer = mongooseOptimizer;
 
 module.exports = mongooseOptimizer;

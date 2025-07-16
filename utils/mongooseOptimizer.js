@@ -37,7 +37,6 @@ class MongooseOptimizer {
   configureGlobalOptimizations() {
     // ❌ serverSelectionTimeoutMS REMOVIDO — deve ser usado dentro de mongoose.connect()
     
-    mongoose.set('bufferMaxEntries', 0); // Desabilitar buffering
     mongoose.set('bufferCommands', false); // Desabilitar buffer de comandos
     mongoose.set('strictQuery', true); // Melhor performance
 

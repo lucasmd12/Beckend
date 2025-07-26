@@ -1,0 +1,127 @@
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-06-30T15:41:18.878Z"}
+{"level":"warn","message":"Firebase service disabled or misconfigured","timestamp":"2025-06-30T15:41:18.916Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-06-30T15:41:18.947Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-06-30T15:41:19.020Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-06-30T15:41:19.213Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-06-30T15:41:19.321Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-06-30T17:39:37.156Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-06-30T17:39:37.247Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-06-30T17:39:37.346Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-06-30T17:39:37.351Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-06-30T17:39:37.459Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-06-30T17:39:37.629Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-06-30T17:39:37.736Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-06-30T17:40:41.560Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-06-30T17:40:41.626Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-06-30T17:40:41.739Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-06-30T17:40:41.745Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-06-30T17:40:41.890Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-06-30T17:40:42.041Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-06-30T17:40:42.163Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-06-30T17:42:03.827Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-06-30T17:42:03.888Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-06-30T17:42:03.995Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-06-30T17:42:03.999Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-06-30T17:42:04.097Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-06-30T17:42:04.286Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-06-30T17:42:04.401Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-06-30T17:42:23.799Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-06-30T17:42:23.859Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-06-30T17:42:23.962Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-06-30T17:42:23.966Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-06-30T17:42:24.071Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-06-30T17:42:24.252Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-06-30T17:42:24.371Z"}
+{"error":{},"level":"error","message":"200 - The CORS policy for this site does not allow access from the specified Origin. - /api/auth/login - POST - 35.191.90.186","requestId":"unknown","stack":"Error: The CORS policy for this site does not allow access from the specified Origin.\n    at origin (/home/ubuntu/backend_project/server.js:246:23)\n    at /home/ubuntu/backend_project/node_modules/cors/lib/index.js:219:13\n    at optionsCallback (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:199:9)\n    at corsMiddleware (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:204:7)\n    at /home/ubuntu/backend_project/node_modules/@sentry-internal/tracing/cjs/node/integrations/express.js:112:12\n    at Layer.handleRequest (/home/ubuntu/backend_project/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/home/ubuntu/backend_project/node_modules/router/index.js:342:13)\n    at /home/ubuntu/backend_project/node_modules/router/index.js:297:9\n    at processParams (/home/ubuntu/backend_project/node_modules/router/index.js:582:12)\n    at next (/home/ubuntu/backend_project/node_modules/router/index.js:291:5)","timestamp":"2025-06-30T17:54:08.355Z","user":null}
+{"error":{},"level":"error","message":"200 - The CORS policy for this site does not allow access from the specified Origin. - /api/auth/login - POST - 35.191.90.187","requestId":"unknown","stack":"Error: The CORS policy for this site does not allow access from the specified Origin.\n    at origin (/home/ubuntu/backend_project/server.js:246:23)\n    at /home/ubuntu/backend_project/node_modules/cors/lib/index.js:219:13\n    at optionsCallback (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:199:9)\n    at corsMiddleware (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:204:7)\n    at /home/ubuntu/backend_project/node_modules/@sentry-internal/tracing/cjs/node/integrations/express.js:112:12\n    at Layer.handleRequest (/home/ubuntu/backend_project/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/home/ubuntu/backend_project/node_modules/router/index.js:342:13)\n    at /home/ubuntu/backend_project/node_modules/router/index.js:297:9\n    at processParams (/home/ubuntu/backend_project/node_modules/router/index.js:582:12)\n    at next (/home/ubuntu/backend_project/node_modules/router/index.js:291:5)","timestamp":"2025-06-30T17:54:10.855Z","user":null}
+{"error":{},"level":"error","message":"200 - The CORS policy for this site does not allow access from the specified Origin. - /api/auth/login - POST - 35.191.90.187","requestId":"unknown","stack":"Error: The CORS policy for this site does not allow access from the specified Origin.\n    at origin (/home/ubuntu/backend_project/server.js:246:23)\n    at /home/ubuntu/backend_project/node_modules/cors/lib/index.js:219:13\n    at optionsCallback (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:199:9)\n    at corsMiddleware (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:204:7)\n    at /home/ubuntu/backend_project/node_modules/@sentry-internal/tracing/cjs/node/integrations/express.js:112:12\n    at Layer.handleRequest (/home/ubuntu/backend_project/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/home/ubuntu/backend_project/node_modules/router/index.js:342:13)\n    at /home/ubuntu/backend_project/node_modules/router/index.js:297:9\n    at processParams (/home/ubuntu/backend_project/node_modules/router/index.js:582:12)\n    at next (/home/ubuntu/backend_project/node_modules/router/index.js:291:5)","timestamp":"2025-06-30T17:54:35.730Z","user":null}
+{"error":{},"level":"error","message":"200 - The CORS policy for this site does not allow access from the specified Origin. - /api/auth/login - POST - 35.191.90.185","requestId":"unknown","stack":"Error: The CORS policy for this site does not allow access from the specified Origin.\n    at origin (/home/ubuntu/backend_project/server.js:246:23)\n    at /home/ubuntu/backend_project/node_modules/cors/lib/index.js:219:13\n    at optionsCallback (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:199:9)\n    at corsMiddleware (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:204:7)\n    at /home/ubuntu/backend_project/node_modules/@sentry-internal/tracing/cjs/node/integrations/express.js:112:12\n    at Layer.handleRequest (/home/ubuntu/backend_project/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/home/ubuntu/backend_project/node_modules/router/index.js:342:13)\n    at /home/ubuntu/backend_project/node_modules/router/index.js:297:9\n    at processParams (/home/ubuntu/backend_project/node_modules/router/index.js:582:12)\n    at next (/home/ubuntu/backend_project/node_modules/router/index.js:291:5)","timestamp":"2025-06-30T17:54:36.813Z","user":null}
+{"error":{},"level":"error","message":"200 - The CORS policy for this site does not allow access from the specified Origin. - /api/auth/login - POST - 35.191.105.180","requestId":"unknown","stack":"Error: The CORS policy for this site does not allow access from the specified Origin.\n    at origin (/home/ubuntu/backend_project/server.js:246:23)\n    at /home/ubuntu/backend_project/node_modules/cors/lib/index.js:219:13\n    at optionsCallback (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:199:9)\n    at corsMiddleware (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:204:7)\n    at /home/ubuntu/backend_project/node_modules/@sentry-internal/tracing/cjs/node/integrations/express.js:112:12\n    at Layer.handleRequest (/home/ubuntu/backend_project/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/home/ubuntu/backend_project/node_modules/router/index.js:342:13)\n    at /home/ubuntu/backend_project/node_modules/router/index.js:297:9\n    at processParams (/home/ubuntu/backend_project/node_modules/router/index.js:582:12)\n    at next (/home/ubuntu/backend_project/node_modules/router/index.js:291:5)","timestamp":"2025-06-30T17:55:26.804Z","user":null}
+{"error":{},"level":"error","message":"200 - The CORS policy for this site does not allow access from the specified Origin. - /api/auth/login - POST - 35.191.23.211","requestId":"unknown","stack":"Error: The CORS policy for this site does not allow access from the specified Origin.\n    at origin (/home/ubuntu/backend_project/server.js:246:23)\n    at /home/ubuntu/backend_project/node_modules/cors/lib/index.js:219:13\n    at optionsCallback (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:199:9)\n    at corsMiddleware (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:204:7)\n    at /home/ubuntu/backend_project/node_modules/@sentry-internal/tracing/cjs/node/integrations/express.js:112:12\n    at Layer.handleRequest (/home/ubuntu/backend_project/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/home/ubuntu/backend_project/node_modules/router/index.js:342:13)\n    at /home/ubuntu/backend_project/node_modules/router/index.js:297:9\n    at processParams (/home/ubuntu/backend_project/node_modules/router/index.js:582:12)\n    at next (/home/ubuntu/backend_project/node_modules/router/index.js:291:5)","timestamp":"2025-06-30T17:59:36.866Z","user":null}
+{"error":{},"level":"error","message":"200 - The CORS policy for this site does not allow access from the specified Origin. - /api/auth/login - POST - 35.191.23.210","requestId":"unknown","stack":"Error: The CORS policy for this site does not allow access from the specified Origin.\n    at origin (/home/ubuntu/backend_project/server.js:246:23)\n    at /home/ubuntu/backend_project/node_modules/cors/lib/index.js:219:13\n    at optionsCallback (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:199:9)\n    at corsMiddleware (/home/ubuntu/backend_project/node_modules/cors/lib/index.js:204:7)\n    at /home/ubuntu/backend_project/node_modules/@sentry-internal/tracing/cjs/node/integrations/express.js:112:12\n    at Layer.handleRequest (/home/ubuntu/backend_project/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/home/ubuntu/backend_project/node_modules/router/index.js:342:13)\n    at /home/ubuntu/backend_project/node_modules/router/index.js:297:9\n    at processParams (/home/ubuntu/backend_project/node_modules/router/index.js:582:12)\n    at next (/home/ubuntu/backend_project/node_modules/router/index.js:291:5)","timestamp":"2025-06-30T17:59:43.533Z","user":null}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-06-30T18:09:24.868Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-06-30T18:09:24.931Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-06-30T18:09:25.030Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-06-30T18:09:25.035Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-06-30T18:09:25.117Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-06-30T18:09:25.315Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-06-30T18:09:25.436Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-06-30T18:11:54.004Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-06-30T18:11:54.064Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-06-30T18:11:54.167Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-06-30T18:11:54.171Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-06-30T18:11:54.255Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-06-30T18:11:54.454Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-06-30T18:11:54.573Z"}
+{"level":"warn","message":"Cloudinary service disabled or misconfigured","timestamp":"2025-07-12T22:27:35.960Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-12T22:27:36.001Z"}
+{"level":"info","message":"Servidor rodando na porta 5000","timestamp":"2025-07-12T22:27:36.072Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-12T22:27:36.076Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Failed to connect Redis for Socket.IO adapter:","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1139:18)\n    at afterConnectMultiple (node:net:1712:7)","timestamp":"2025-07-12T22:27:36.084Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Failed to initialize cache service:","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1139:18)\n    at afterConnectMultiple (node:net:1712:7)","timestamp":"2025-07-12T22:27:36.845Z"}
+{"level":"warn","message":"Application will continue without cache","timestamp":"2025-07-12T22:27:36.846Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-07-12T22:29:24.883Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-12T22:29:24.931Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-07-12T22:29:25.006Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-12T22:29:25.010Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-07-12T22:29:25.071Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-07-12T22:29:25.269Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-07-12T22:29:25.382Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-07-13T13:10:15.724Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-13T13:10:15.763Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-07-13T13:10:15.845Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-13T13:10:15.849Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-07-13T13:10:15.928Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-07-13T13:10:16.108Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-07-13T13:10:16.229Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-07-13T13:19:37.497Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-13T13:19:37.534Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-07-13T13:19:37.621Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-13T13:19:37.625Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-07-13T13:19:37.810Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-07-13T13:19:37.883Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-07-13T13:19:37.997Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-07-13T16:35:54.918Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-13T16:35:54.955Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-07-13T16:35:55.041Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-13T16:35:55.045Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-07-13T16:35:55.203Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-07-13T16:35:55.306Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-07-13T16:35:55.424Z"}
+{"level":"info","message":"Chamada iniciada por idcloned para lucasg. Call ID: 6873e0939aead310299b0ca7","service":"federacao-backend","timestamp":"2025-07-13T16:36:35.361Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-07-13T16:41:59.592Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-13T16:41:59.632Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-07-13T16:41:59.714Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-13T16:41:59.718Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-07-13T16:41:59.785Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-07-13T16:41:59.982Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-07-13T16:42:00.096Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-07-13T17:16:38.223Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-13T17:16:38.261Z"}
+{"level":"info","message":"Servidor rodando na porta 3000","timestamp":"2025-07-13T17:16:38.340Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-13T17:16:38.343Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-07-13T17:16:38.439Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-07-13T17:16:38.600Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-07-13T17:16:38.712Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-07-26T12:40:11.846Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-26T12:40:11.888Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-07-26T12:40:11.974Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-26T12:40:11.992Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-07-26T12:40:12.085Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-07-26T12:40:12.266Z"}
+{"level":"info","message":"Presence service initialized successfully","timestamp":"2025-07-26T12:40:12.267Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-07-26T12:40:12.273Z"}
+{"level":"info","message":"Optimized cache service initialized successfully","timestamp":"2025-07-26T12:40:12.376Z"}
+{"level":"info","message":"MongoDB Connected.","timestamp":"2025-07-26T12:40:13.381Z"}
+{"level":"info","message":"🚀 Server is running on port 3000","timestamp":"2025-07-26T12:40:13.383Z"}
+{"level":"info","message":"Cloudinary service initialized successfully","timestamp":"2025-07-26T13:14:01.033Z"}
+{"level":"info","message":"Firebase service initialized successfully","timestamp":"2025-07-26T13:14:01.071Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-07-26T13:14:01.167Z"}
+{"level":"info","message":"Firebase connection test passed","timestamp":"2025-07-26T13:14:01.186Z"}
+{"level":"info","message":"Cloudinary connection test passed","timestamp":"2025-07-26T13:14:01.254Z"}
+{"level":"info","message":"Cache service initialized successfully","timestamp":"2025-07-26T13:14:01.438Z"}
+{"level":"info","message":"Presence service initialized successfully","timestamp":"2025-07-26T13:14:01.439Z"}
+{"level":"info","message":"Redis adapter for Socket.IO connected.","timestamp":"2025-07-26T13:14:01.454Z"}
+{"level":"info","message":"Optimized cache service initialized successfully","timestamp":"2025-07-26T13:14:01.581Z"}
+{"level":"info","message":"MongoDB Connected.","timestamp":"2025-07-26T13:14:02.381Z"}
+{"level":"info","message":"🚀 Server is running on port 3000","timestamp":"2025-07-26T13:14:02.386Z"}
